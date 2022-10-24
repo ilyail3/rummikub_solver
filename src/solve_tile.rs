@@ -3,6 +3,7 @@ use std::collections::BTreeSet;
 use itertools::Itertools;
 
 use crate::Piece;
+use crate::sort_set::sort_sets;
 use crate::validate::valid_set;
 
 fn tile_target(target: usize) -> Vec<[u8; 3]> {
@@ -100,7 +101,7 @@ pub fn solve_board(pieces: Vec<Piece>) -> Option<Vec<Vec<Piece>>> {
                 results.push(set);
             }
 
-            return Some(results);
+            return Some(sort_sets(results));
         }
     }
 
@@ -124,13 +125,13 @@ mod tests {
         )), Some(vec!(
             vec!(
                 Piece::normal(1, Color::Black),
+                Piece::normal(1, Color::Blue),
                 Piece::normal(1, Color::Red),
-                Piece::normal(1, Color::Blue)
             ),
             vec!(
                 Piece::normal(2, Color::Black),
+                Piece::normal(2, Color::Blue),
                 Piece::Joker,
-                Piece::normal(2, Color::Blue)
             )
         )));
     }

@@ -1,7 +1,7 @@
 [package]
 name = "rummikub_solver"
 description = "Solves a board of Rummikub game by attempting to fit every piece given into a valid game set."
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "Apache-2.0"
 repository = "https://github.com/ilyail3/rummikub_solver"

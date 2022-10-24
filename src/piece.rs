@@ -1,7 +1,7 @@
 use std::slice::Iter;
 use serde::{Serialize,Deserialize};
 
-#[derive(Debug, PartialEq, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Copy, Clone, Eq, Ord, PartialOrd, Serialize, Deserialize)]
 pub enum Color {
     Black,
     Blue,
@@ -16,13 +16,13 @@ impl Color {
     }
 }
 
-#[derive(Debug, PartialEq, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone, Serialize, Deserialize)]
 pub struct NormalPiece {
     pub domination: u8,
     pub color:Color
 }
 
-#[derive(Debug, PartialEq, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, PartialEq, Eq, Copy, Clone, Serialize, Deserialize)]
 #[serde(tag = "type")]
 pub enum Piece {
     Joker,
